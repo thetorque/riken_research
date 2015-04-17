@@ -18,7 +18,7 @@ def allan_fit(params , x, data, err):
     model = allan_model(params, x)
     return (model - data)/err
 
-wave_cut = np.loadtxt("150415203929stab_cut.csv",skiprows=3)
+wave_cut = np.loadtxt("150417133128stab_cut.dat",skiprows=3)
 
 time = wave_cut[:,3]-wave_cut[:,3][0]
 
@@ -39,7 +39,7 @@ interval = time[1:]-time[0:-1]
 print "minimum interval is", np.min(interval)
 
 #start_bin_size = max(interval)+1 # choose bin size to have at least one data point
-start_bin_size = 10
+start_bin_size = 20
 smallest_bin_size = min(interval)
 
 print "smallest bin size =", smallest_bin_size
@@ -51,7 +51,7 @@ true_variance = []
 avar = []
 allan_error_bar = []
  
-for bin_size in np.logspace(np.log10(start_bin_size),np.log10(1500.0),num=30):
+for bin_size in np.logspace(np.log10(start_bin_size),np.log10(time[-1]/3.0),num=30):
     phase_diff = []
     #print "bin_size = ", bin_size
     cf = bin_size/smallest_bin_size+1
