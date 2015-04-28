@@ -2,13 +2,13 @@ from __future__ import division
 import numpy as np
 from matplotlib import pyplot
 import matplotlib
-import lmfit
+# import lmfit
 
 
 #data132 = stage C gain#
 #wave = np.loadtxt(open("150415203929stab.csv",'rb'),delimiter=' ', skiprows=1)
-wave = np.loadtxt("150415203929stab.csv",skiprows=3)
-wave_cut = np.loadtxt("150415203929stab_cut.csv",skiprows=3)
+#wave = np.loadtxt("150415203929stab.csv",skiprows=3)
+wave_cut = np.loadtxt("150417133128stab_cut.dat",skiprows=3)
 
 
 center_freq = wave_cut[:,1]
