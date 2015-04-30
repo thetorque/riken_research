@@ -1,0 +1,192 @@
+04/27
+
+next
+光強度一瞬落とすのやめる。
+安定化中にlabviewのバッファやめる。
+
+bias mag(Sr/Yb)
+1st:0.1=>0.0=>0.2(Sr/Yb), 9.4=>9.4=>9.2(Sr/Yb), 0.3=>0.4(Sr/Sr)=>0.0(Sr/Yb)
+2nd:0.7=>0.7(Sr/Sr), 3.1=>3.1(Sr/Sr), 0.9=>0.95(Sr/Sr)
+
+1st trapfreq (75kHzから)
+1065kHz 53kHz
+965kHz 53kHz
+1165kHz 54kHz
+再度
+1065kHz 71kHzでmax
+[trapfreq01]mov 1065kHz=11.695mm, 71kHz
+[trapfreq02]mov 2130kHz=23.39mm, 36kHz (2nd38kHz)
+[trapfreq03]no mov, 44kHz (2nd37kHz)
+
+
+
+
+
+2ndにサイドバンド冷却。
+1st nomov, 2nd cooling追加。
+・2ndの689 7/2 shtはずした。ch13を共通で2ndのｓｗ追加。
+・クーリングのDDSをスプリッタ。・ch18,19のshtを共通のch18に。
+・ch28をch4と同じ。
+・1stだけ固定の40MHz。・lattice lock解除の信号復活。
+
+
+1.5sに戻す。
+coolingの時と分光の時、パワー半分。
+(cooling-48kHz, 16dBm 5ms + 679+496nm 5ms)*11+(20ms,10ms)*8追加
+分光のときもパワー半分。trapfreq53kHz
+[01]cooling on(-48kHzcooling), res+47kHzのところスキャン。
+[01-1]cooling on(-48kHzcooling), res-46kHzのところスキャン。
+0.118188
+coolingの時、パワー半分。分光の時、パワー75%。63kHz
+[02]cooling on(-48kHzcooling), res+60kHzのところスキャン。
+[02-2]cooling on(-48kHzcooling), res-60kHzのところスキャン。
+0.0792154
+coolingの時だけ、パワー半分。
+[03]cooling on(-48kHzcooling), res+71kHzのところスキャン。
+[03-2]cooling on(-48kHzcooling), res-72kHzのところスキャン。
+0.06274859
+
+1st lattice 0.141V,0.18V =>58kHz
+N2:π-back。
+
+blue:44=>28.5mW(65%), green:29.5=>19.5(66%)
+blue:47.3mW(fiber前)=>62mV, green:29.5mW(fiber前)=>38mV
+
+light shift measure:powerの下げ方注意
+Red MOT光 15mWほどに落ちてる。
+Sr/Ybオーブン
+昔：1.5mV=>3.5mV, 今：2.5mV=>3.6mV (電源4.8A)
+
+ECDL:EOM585.7MHz=>585.9, Yb wavemeter 368,554,440MHz
+cal port, Lattice=368,554,421MHz, 
+ECDL-comb beat:-10.7
+
+2nd521MHz(ref97.6MHz,offsetlock+93MHz)
+=>
+1st490MHz(ref18MHz,offsetlock-13.4MHz)
+2nd490MHz(ref66.6MHz,offsetlock+62MHz)
+
+1st blue MOT 100mV
+2nd blue MOT 100mV
+
+no mov, prb-7dBm
+blue MOT 50:50=>3:7, Zn 40:60=>4:6  
+count 9500=>9000, 8000=>8500count (mov) 
+Sr-2,oven(room temp.)=>mV 
+
+bias mag(Sr/Yb)
+1st:0.2=>0.5=>0.2(Sr/Yb), 9.3=>9.3=>9.2(Sr/Yb), 0.0=>0.2(Sr/Sr)=>0.0(Sr/Yb)
+2nd:0.3=>0.3(Sr/Sr), 3.25=>3.2(Sr/Sr), 0.85=>0.85(Sr/Sr)
+
+赤MOT　前回+40,+40kHz(mov 1st-30kHz)
+clock　前回+5kHz
+clock offset +5kHz, 71.475MHz
+
+pibackアライメント
+[no mov,mov]
+W023からのfiber out 3.9=>mW 
+piback 1.2ms 14.86=>14.86, 12=>15dBm
+0.50=>0.53, 0.48=>0.51
+[dataspe00]
+[40ms pi back]
+-9/2 1st 0.39(アッテネータ32=>32dBm) , 2nd 0.38 (アッテネータ29=>30dBm)
++9/2     0.40,     0.38
+[dataspe01]-9/2
+[dataspe01-1]+9/2
+[300ms pi]12=>13dBm.13=>10dBm 
+λ/2:60=>76度, PBS後1st 400uW, 2nd420uW
+-9/2 1st 0.39, 2nd 0.37
++9/2 1st 0.41, 2nd 0.36
+purify
+-9/2 1st 0.93, 2nd 0.95
++9/2 1st 0.92, 2nd 0.95
+[dataspe03]-9/2, 2.88Hz,Hz 0.9
+[dataspe03_3]+9/2, Hz
+[300ms pi]13=>11dBm.13=>13dBm 
+[dataspe03-A]
+[300ms pi]13=>11dBm.13=>10dBm 
+[dataspe03-B]
+
+[200ms pi]2nd
+λ/2:76=>90度
+drift0
+
+heating pol 810-813追加の方がいいけど、
+coolingで要チェックのため削除。
+
+40.007236MHz
+
+lattice 波長計 12293.65227/cm
+cavity lock
+エタロンロック無し
+
+cooling sideband-37kHzありのstab.
+[data01]s40.007236,s-1.33333Hz,13,14.86,13,15dBmdBm,z1:450,z2:452,d0.05Hz,
+g1.3,p0.55,a0.9,0.9
+
+Sr-1, fiber前340,<290mW =>back couple240,180mW(66%)
+            chamber前345mW,340mW  
+(PD: 0.195=>0.185=>0.162,1.69=>1.62=>0.152V)(700%)
+2nd lattice λ/2
+始めの31度, EO後22度 =>29度,26度
+Sr-2, fiber前260,<200mW =>back couple200,125mW
+            chamber前320mW,320mW 
+(PD: 1.75=>1.75,1.12=>1.07V)
+
+磁場出し。mov.
+1st
+g3.46(Sr)=>3.48(Sr/Yb), z5.8(Sr)=>5.82(Sr)=>5.80(Sr/Yb), 
+M2.18=>2.25(Sr)=>2.02(Sr/Yb) 
+450.5Hz
+M2.6 452Hz
+M2.8 455Hz
+M1.7 455Hz
+M=2.25 449.5Hz
+
+g
+3.7V 442.5Hz
+3.9V 439Hz
+4.3V 433.5Hz
+4.5V 432.5Hz
+4.7V 432.5Hz
+=>447.8Hz = 3.48V
+
+mov 2130 448,452
+mov 2160 445,452.5
+mov 2100 450,453.5
+mov 2070 452,455.5
+mov 2040 452.5,458.5
+mov 2010 454.5,462
+
+2070kHzで。
+
+[200ms pi]1st
+λ/2:76=>58度
+[dataspe04]励起率0.73 パワー足りない。
+
+[data02]s40.007126,s-2Hz,13,14.86,13,15dBmdBm,z1:450,z2:452,d-0.05Hz,
+g1.3,p0.55,a0.9,0.9
+
+Link, false counter グラフ化
+[data03]s40.007116,s-2Hz,13,14.86,13,15dBmdBm,z1:450,z2:452,d-0.05Hz,
+g1.3,p0.55,a0.9,0.9
+
+injection　電流上げた72=>80mA
+励起率低い0.85
+[dataspe05]
+
+Hg九時くらいから。Linkも。
+[data04]s40.006956,s-2Hz,13,13.86,13,15dBmdBm,z1:450,z2:452,d-0.05Hz,
+g1.3,p0.55,a0.9,0.9
+pts6500ぐらい?10分ラティス落ちた。
+pts8440ぐらいで5分落ちた。
+
+
+[data05]水銀時間合わせ
+
+
+
+
+
+////////////////////////////////////////////////////////
+

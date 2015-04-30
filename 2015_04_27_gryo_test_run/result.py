@@ -18,7 +18,7 @@ def allan_fit(params , x, data, err):
     model = allan_model(params, x)
     return (model - data)/err
 
-data = (np.array([0.570647,0.570592])-0.570647)*100000
+data = (np.array([0.570647,0.570599])-0.570647)*100000
 temp = np.array([1,2])
 err = np.array([0.000015,0.000047])*100000
 pyplot.errorbar(temp,data,err,fmt='o',markersize = 10.0)
