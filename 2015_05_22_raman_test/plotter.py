@@ -1,9 +1,9 @@
 from __future__ import division
-#import labrad
+import labrad
 import numpy as np
 from matplotlib import pyplot
 import matplotlib
-#import lmfit
+import lmfit
 
 def allan_model(params, x):
     A = params['A'].value
@@ -18,21 +18,39 @@ def allan_fit(params , x, data, err):
     model = allan_model(params, x)
     return (model - data)/err
 
-ratio = 2.62931420989890960
 
-Sr_time_offset = 43887229.263617
-Hg_time_offset = 3512987633.790
 
 Hg = np.loadtxt("150522195817stab.dat",skiprows=3)
-#Hg_raw_time = Hg[:,3]-Hg[:,3][-1]
-#Hg_raw_time = Hg[:,3]-Hg_time_offset
-#Hg_freq = Hg[:,1]-Hg[:,1][-1]
-#Sr_raw_freq = Sr[]
+excitation_rate = Hg[:,21]
+number = Hg[:,0]
+error_1 = Hg[:,13]
+error_2 = Hg[:,14]
 
-#Hg[:,7] excitation rate
-#Hg[:,8] in loop +
-#Hg[:,9] in loop -
-pyplot.plot(Hg[:,0],Hg[:,21]) ## excitation rate
-#pyplot.plot(Hg[:,0],Hg[:,14])
+number = number%3
+error_signal_1 = error_1[np.where(number == 1.0)]
+error_signal_2 = error_2[np.where(number == 1.0)]
+
+raman_1 = error_signal_1[160:251]
+print np.std(raman_1)
+raman_2 = error_signal_2[160:251]
+print np.std(raman_2)
+ecdl_1 = error_signal_1[280:450]
+print np.std(ecdl_1)
+ecdl_2 = error_signal_2[280:450]
+print np.std(ecdl_2)
+
+#pyplot.plot(ecdl_2)
+#pyplot.plot(raman_2)
+#pyplot.plot(error_signal_2)
+#pyplot.plot(excitation_rate) #1008/2 = 252 ## 1040/4 = 260
+
+#print number
+
+#pyplot.plot(Hg[:,0],Hg[:,21]) ## excitation rate both channel
+#pyplot.grid(True, which='both')
+
+#pyplot.plot(Hg[:,0],Hg[:,9]) ## drift rate?
+#pyplot.plot(Hg[:,0],Hg[:,13]) ## error signal? A
+#pyplot.plot(Hg[:,0],Hg[:,14]) ## error signal? B
 
 pyplot.show()
